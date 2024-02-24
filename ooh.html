@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fullscreen Video Player</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Set the background color to black */
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #myVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio while covering entire container */
+  }
+</style>
+</head>
+<body>
+
+<video id="myVideo" controls autoplay>
+  <!-- Provide the path to the video file on your desktop -->
+  <source src="file:///C:/Users/alexander/Desktop/video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<script>
+  // Get the video element
+  var video = document.getElementById("myVideo");
+
+  // When the video ends, navigate to the predefined URL
+  video.onended = function() {
+    while(1)location.reload(1);
+  };
+
+  // Put the website in fullscreen mode
+  document.documentElement.requestFullscreen().catch(function(err) {
+    console.error(err);
+  });
+</script>
+
+</body>
+</html>
